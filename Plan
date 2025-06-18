@@ -1,13 +1,38 @@
 Plan 
 
+Create Employee Profiles - 12 needed
+Create Main screen
+Create admin functiosn
+Create employee pages
+Collect Hours Worked
+Calculate payroll & taxes
+Create database - SQL? 
+
+
+
 Menus:
+* Main screen menus
+- login
+-user ID & password 
+- user type (employee or admin)
+- exit
+
 * Admin 
+- employee demographics
+- payroll info & calculations
+- add, edit, delete
+- employee search
+
 * Employee 
+- enter hours worked
+- personal time off (PTO)
+- paycheck calculation
 
 Screens:
-* Main screen - login
-* Employee screen 
-* Salary screen 
+* Main screen 
+* Admin-only screens
+-Employee screen 
+-Salary screen 
 * Time entry screen
 
 Actors:
