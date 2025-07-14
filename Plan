@@ -1,17 +1,16 @@
 Plan 
 
-Create Employee Profiles - 12 needed in Excel
+Create 12 Employee Profiles 
 include employee pictures
-Sketch Screens
+Sketch Screens 
 Create Main screen 
 Create admin functions
-Create employee pages
+Create employee pages 
 Collect Hours Worked
 Calculate payroll & taxes
-Create database - SQL or Postgres
-Create UML Diagrams
+Create database - SQL or Postgres - created in SQLite3
+Create UML Diagrams 
 Create testing log/spreadsheet
-
 
 Menus:
 * Main screen menus
@@ -38,16 +37,4 @@ Screens:
 -Salary screen 
 * Time entry screen
 
-Actors:
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
+
