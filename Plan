@@ -37,4 +37,16 @@ Screens:
 -Salary screen 
 * Time entry screen
 
+Progress (as of 7/29/2025):
+Main screen made
+Database connected 
+13 employees in database 
+Complete UML Diagrams
+fix login- password change prompt works, but doesn't update password but update statement seemingly executes
+Add extra button/screen to change password? 
+Payroll calculations
+
+
+
+
 
