@@ -1,51 +1,89 @@
-import javafx.scene.control.RadioButton;
-import javax.swing.*;
+import org.sqlite.JDBC;
 
-public class Main {
-    public static void main(String[] args) {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.*;
+import java.util.Arrays;
+import java.util.Properties;
+import java.util.Scanner;
 
-    }
-    JPanel jPanel = new JPanel();
-    JMenu screen = getScreen();
-    JMenuBar bar = new JMenuBar();
-    RadioButton employee = new RadioButton("Employee");
-    RadioButton admin = new RadioButton("Admin");
-    JMenuItem menuItem = new JMenuItem();
-    JButton loginButton = new JButton("Login");
-    JFrame frame = new JFrame();
-    JLabel userLabel = new JLabel();
-    JLabel passLabel = new JLabel();
 
-    public JFrame getFrame() {
-        jPanel.setVisible(true);
-        setFrame(frame);
-        frame.setVisible(true);
-        return frame;
+class Database {
+    String url = "jdbc:sqlite:/Users/emilymannlein/employees.db";
+    Connection makeConnection() {
+        try(Connection connection = DriverManager.getConnection(url)){
+            System.out.println("CONNECTED TO DATABASE");
+            return connection;
+        }
+        catch(SQLException e){
+            System.err.println("CONNECTION FAILED");
+        }
+        return makeConnection();
     }
 
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
-        frame.setTitle("login");
+
+    JDBC jdbc = new JDBC();
+
+    Database() throws SQLException {
+        try{
+            jdbc.connect(url,new Properties());
+        }
+        catch (SQLException e){
+            throw new SQLException();
+        }
     }
 
-    public JMenu getScreen() {
-        frame = getFrame();
-        assert screen != null;
-        screen.add(bar);
-        screen.add(loginButton);
-        assert admin != null;
-        admin.setVisible(true);
-        admin.setText("Select user");
-        assert employee != null;
-        employee.setVisible(true);
-        screen.add(menuItem);
-        assert userLabel != null;
-        userLabel.setText("Username:");
-        assert passLabel != null;
-        passLabel.setText("Password:");
-        assert frame != null;
-        frame.setJMenuBar(bar);
-        return screen;
+    String EmployeeUname() throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+       String username;
+       String first_name = scanner.nextLine();
+        Connection connection = DriverManager.getConnection(url);
+        String query = "SELECT email FROM employees WHERE first_name = ?;";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, first_name);
+        ResultSet email = statement.executeQuery();
+        username = email.getString(1);
+        statement.close();
+        return username;
     }
+
+    char[] SetPassword() throws SQLException, InterruptedException, NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("MD5");
+        Scanner scanner = new Scanner(System.in);
+        Main main = new Main();
+        Connection connection = DriverManager.getConnection(url);
+        connection.setAutoCommit(false);
+        Statement statement = connection.createStatement();
+        String pquery = "SELECT password FROM employees WHERE email=?";
+        String bquery = "SELECT birthday FROM employees WHERE email =?;";
+        // *password default needs stored as hash
+        //check if password is default
+
+        ResultSet password = statement.executeQuery(pquery);
+        ResultSet birthday = statement.executeQuery(bquery);
+        char[] pword = main.Pfield().getPassword();
+        if(password==birthday){
+            System.out.println("Change password");
+            byte[] pd = digest.digest(Arrays.toString(pword).getBytes());
+            String pchange = "UPDATE employees SET password = ? WHERE email = ?;";
+           PreparedStatement prep = connection.prepareStatement(pchange);
+           //change password to new value
+         prep.setString(1, Arrays.toString(pd));
+            prep.setString(2, EmployeeUname());
+            if(main.doEnter()){
+                prep.executeUpdate();
+                connection.commit();
+            }
+            statement.close();
+            prep.close();
+        }
+       scanner.close();
+       connection.close();
+       return pword;
+    }
+
+
+}
+
 
 }
