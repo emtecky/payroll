@@ -43,9 +43,11 @@ Database connected
 13 employees in database 
 Complete UML Diagrams
 fix login- password change prompt works, but doesn't update password but update statement seemingly executes
-Add extra button/screen to change password? 
+Add extra button/screen to change password? - added 7/30/25. Screen changes back and forth, validates if passwords match, but 
+does not change password in database. Login button prompts to change password but doesn't login, causes cursor to spin. 
 Add more screens/menus and change screens 
 Calculate payroll & taxes
+Create salary info table in database
 
 
 
