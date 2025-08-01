@@ -46,10 +46,12 @@ fix login- password change prompt works, but doesn't update password but update 
 Add extra button/screen to change password? - added 7/30/25. Screen changes back and forth, validates if passwords match, but 
 does not change password in database. Login button prompts to change password but doesn't login, causes cursor to spin. 
 8/1/25 - login takes user to get password screen. Change password still does not update database. Endlessly copies login screen instead of
-going to next screens. 
+going to next screens. Find what causes this.
 Add more screens/menus and change screens 
 Calculate payroll & taxes
-Create salary info table in database
+Create salary info table in database - done
+Complete queries for info
+
 
 
 
