@@ -55,6 +55,7 @@ Complete queries for info
 calculations. Add support for photos. 
 Hashing algorithm changed to PBKDF2WithHmacSHA1. "if doEnter()" code possibly not executing while Enter
 is actually pressed. 
+Function to create admin screen tested. Find out why "Employees" menu item creates new login screen. 
 
 
 
