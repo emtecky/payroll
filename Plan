@@ -50,12 +50,14 @@ going to next screens. Find what causes this.
 Add more screens/menus and change screens 
 Calculate payroll & taxes
 Create salary info table in database - done
-Complete queries for info
+Complete queries for info - done
 8/4/25 - Find why application never goes past login screen. Employee and admin option screens are created with queries for displaying info. Add class and/or functions for payroll
 calculations. Add support for photos. 
-Hashing algorithm changed to PBKDF2WithHmacSHA1. "if doEnter()" code possibly not executing while Enter
+Hashing algorithm changed to PBKDF2WithHmacSHA1 for security. "if doEnter()" code possibly not executing while Enter
 is actually pressed. 
-Function to create admin screen tested. Find out why "Employees" menu item creates new login screen. 
+Function to create admin screen tested. Find out why "Employees" menu item creates new login screen.
+8/4/25 - functions for employee time entry and calculating deductions and stipend are created. Add "add" and "delete" functions for admin. 
+
 
 
 
