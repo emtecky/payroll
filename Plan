@@ -56,7 +56,7 @@ calculations. Add support for photos.
 Hashing algorithm changed to PBKDF2WithHmacSHA1 for security. "if doEnter()" code possibly not executing while Enter
 is actually pressed. 
 Function to create admin screen tested. Find out why "Employees" menu item creates new login screen.
-8/4/25 - functions for employee time entry and calculating deductions and stipend are created. Add "add" and "delete" functions for admin, and incorporate
+8/4/25 - functions for employee time entry and calculating state taxes, total deductions and stipend are created. Add "add" and "delete" functions for admin, and incorporate
 deduction and stipend calculations to get net pay. 
 
 
